@@ -1,0 +1,25 @@
+<div class="d-flex bd-highlight mx-auto" *ngIf="style && onEditing" style="width: 75%;">
+  <div class="p-2 flex-shrink-1 bd-highlight">
+    <app-style-card [styleData]="style"></app-style-card>
+  </div>
+  <div class="p-2 w-100 bd-highlight">
+    <div class="d-flex align-items-start flex-column">
+      <div class="w-100">
+        <div class="form-group">
+          <label for="StyleIDInput">StyleID</label>
+          <input type="text" class="form-control" id="StyleIDInput" [value]="style.StyleID" readonly>
+        </div>
+        <div class="form-group">
+          <label for="ImageInput">Image</label>
+          <input type="text" class="form-control" id="ImageInput" [value]="style.Image" readonly>
+        </div>
+        <div class="form-group">
+          <label for="nameInput">Name</label>
+          <input type="text" class="form-control" id="nameInput" [(ngModel)]="style.Name">
+        </div>
+        <button class="btn btn-primary float-right" (click)="save()" [disabled]="!style.Name">Save</button>
+        <button class="btn btn-secondary float-left" (click)="back()">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
