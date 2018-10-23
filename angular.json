@@ -43,7 +43,9 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "baseHref": "/angular-6-task/",
+              "deployUrl": "/angular-6-task/"
             }
           }
         },
