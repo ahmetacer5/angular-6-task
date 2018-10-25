@@ -12,6 +12,13 @@ export class DataService {
   recentData: Style[];
 
   constructor(private httpClient: HttpClient) {
+    this.loadData(); // Initial Data Load.
+  }
+
+  /**
+   * Loads DataSource from Json File.
+   */
+  loadData() {
     this.httpClient
       .get('assets/json/datasource.json')
       .pipe(
@@ -25,10 +32,18 @@ export class DataService {
       });
   }
 
+
+  /**
+   * Returns Observable of DataSource.
+   */
   getStyleList() {
     return this.subject.asObservable();
   }
 
+  /**
+   * Updates Current DataSource With Given style parameter.
+   * @param style
+   */
   updateStyle(style: Style) {
     const index = this.recentData.findIndex((x: Style) => x.StyleID === style.StyleID);
     this.recentData[index] = style;
