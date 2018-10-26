@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Style } from '../models/style';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class DataService {
    */
   loadData() {
     this.httpClient
-      .get('assets/json/datasource.json')
+      .get(environment.dataSourceUrl)
       .pipe(
         map((response: any) => {
           return response.styles;
